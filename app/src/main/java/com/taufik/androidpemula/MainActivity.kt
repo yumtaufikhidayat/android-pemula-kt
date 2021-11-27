@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity() {
 
         // call function
         toDo()
+        todo2(1, 2)
     }
 
     private fun toDo() {
@@ -17,9 +18,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun todo2(num1: Int, num2: Int): Int {
-        var result: Int
-        result = num1 + num2
-        result = num1 * num2
-        return result
+        return num1 + num2
     }
 }
