@@ -1,23 +1,104 @@
 package com.taufik.androidpemula
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.taufik.androidpemula.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    companion object {
+        private const val TAG = "MainActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // call function
-        toDo()
-        todo2(1, 2)
+        Log.e(TAG, "onCreate: ")
+
+        result()
+
+        if (savedInstanceState != null) {
+            binding.apply {
+                val volume = savedInstanceState.getString(TAG)
+                tvResult.text = volume
+            }
+        }
     }
 
-    private fun toDo() {
-        // TODO 1 : do something
+    private fun result() {
+        binding.apply {
+            btnResult.setOnClickListener {
+
+                var isEmptyField = false
+
+                val length = etLength.text.toString().trim()
+                val width = etWidth.text.toString().trim()
+                val height = etHeight.text.toString().trim()
+
+                if (length.isEmpty()) {
+                    isEmptyField = true
+                    etLength.error = "Field ini tidak boleh kosong"
+                }
+
+                if (width.isEmpty()) {
+                    isEmptyField = true
+                    etWidth.error = "Field ini tidak boleh kosong"
+                }
+
+                if (height.isEmpty()) {
+                    isEmptyField = true
+                    etHeight.error = "Field ini tidak boleh kosong"
+                }
+
+                if (!isEmptyField) {
+                    val volume = length.toDouble() * width.toDouble() * height.toDouble()
+                    tvResult.text = volume.toString()
+                }
+            }
+        }
     }
 
-    private fun todo2(num1: Int, num2: Int): Int {
-        return num1 + num2
+    override fun onStart() {
+        super.onStart()
+        Log.e(TAG, "onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.e(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.e(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.e(TAG, "onStop: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.e(TAG, "onRestart: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e(TAG, "onDestroy: ")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        binding.apply {
+            outState.putString(TAG, tvResult.text.toString())
+        }
+
+        Log.e(TAG, "onSaveInstanceState: ")
     }
 }
