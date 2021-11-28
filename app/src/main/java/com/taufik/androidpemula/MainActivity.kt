@@ -98,7 +98,6 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             outState.putString(TAG, tvResult.text.toString())
         }
-
         Log.e(TAG, "onSaveInstanceState: ")
     }
 }
