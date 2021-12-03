@@ -3,9 +3,9 @@ package com.taufik.androidpemula
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class DetailActivity : AppCompatActivity() {
+class IntentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        setContentView(R.layout.activity_intent)
     }
 }
