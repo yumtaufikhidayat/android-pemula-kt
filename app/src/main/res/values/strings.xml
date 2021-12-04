@@ -4,5 +4,11 @@
     <string name="tvWidth">Lebar</string>
     <string name="tvHeight">Tinggi</string>
     <string name="tvResult">Hasil</string>
+    <string name="tvMoveActivity">Ini Move Activity</string>
+
+    <!--Buttons-->
     <string name="actionResult">Hitung</string>
+    <string name="actionMoveToActivity">Pindah Activity</string>
+    <string name="actionMoveToActivityWithData">Pindah Activity dengan Data</string>
+    <string name="actionDialNumber">Dial a Number</string>
 </resources>

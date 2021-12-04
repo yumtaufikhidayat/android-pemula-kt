@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPemula">
         <activity
-            android:name=".IntentActivity"
+            android:name=".MoveActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".IntentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
