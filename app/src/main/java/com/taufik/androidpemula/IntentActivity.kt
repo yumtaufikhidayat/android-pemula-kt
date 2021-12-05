@@ -21,6 +21,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
     private fun onClickButton() {
         binding.apply {
             btnMoveToActivity.setOnClickListener(this@IntentActivity)
+            btnMoveToActivityWithData.setOnClickListener(this@IntentActivity)
         }
     }
 
@@ -28,6 +29,14 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         when (view?.id) {
             R.id.btnMoveToActivity -> {
                 startActivity(Intent(this, MoveActivity::class.java))
+            }
+
+            R.id.btnMoveToActivityWithData -> {
+                val intentWithData = Intent(this, MoveWithDataActivity::class.java).apply {
+                    putExtra(MoveWithDataActivity.EXTRA_NAME, "Taufik Hidayat")
+                    putExtra(MoveWithDataActivity.EXTRA_AGE, 24)
+                }
+                startActivity(intentWithData)
             }
         }
     }

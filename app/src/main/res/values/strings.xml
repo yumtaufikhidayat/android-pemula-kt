@@ -5,6 +5,7 @@
     <string name="tvHeight">Tinggi</string>
     <string name="tvResult">Hasil</string>
     <string name="tvMoveActivity">Ini Move Activity</string>
+    <string name="tvDataReceived">Data Received</string>
 
     <!--Buttons-->
     <string name="actionResult">Hitung</string>
