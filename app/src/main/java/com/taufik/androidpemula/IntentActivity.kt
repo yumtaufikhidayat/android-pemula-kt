@@ -1,6 +1,7 @@
 package com.taufik.androidpemula
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,7 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
         binding.apply {
             btnMoveToActivity.setOnClickListener(this@IntentActivity)
             btnMoveToActivityWithData.setOnClickListener(this@IntentActivity)
+            btnDialANumber.setOnClickListener(this@IntentActivity)
         }
     }
 
@@ -37,6 +39,12 @@ class IntentActivity : AppCompatActivity(), View.OnClickListener {
                     putExtra(MoveWithDataActivity.EXTRA_AGE, 24)
                 }
                 startActivity(intentWithData)
+            }
+
+            R.id.btnDialANumber -> {
+                val phoneNumber = "085296257704"
+                val dialPhoneIntent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$phoneNumber"))
+                startActivity(dialPhoneIntent)
             }
         }
     }
