@@ -12,13 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidPemula">
         <activity
-            android:name=".MoveWithDataActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MoveActivity"
-            android:exported="false" />
-        <activity
-            android:name=".IntentActivity"
+            android:name=".ViewViewGroupActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
