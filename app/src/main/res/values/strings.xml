@@ -30,6 +30,15 @@
     <string name="buy">Beli</string>
     <string name="dummy_value">$735</string>
     <string name="dummy_photos">6 photos</string>
+    <string name="tvHeroTitle">Nama pahlawan</string>
+    <string name="tvHeroDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat.</string>
+
+    <!--Menu-->
+    <string name="menuList">List</string>
+    <string name="menuGrid">Grid</string>
+    <string name="menuCardView">CardView</string>
 
     <!--Buttons-->
     <string name="actionResult">Hitung</string>
