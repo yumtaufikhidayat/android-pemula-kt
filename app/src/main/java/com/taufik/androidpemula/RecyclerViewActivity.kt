@@ -45,15 +45,15 @@ class RecyclerViewActivity : AppCompatActivity() {
     private fun setMode(selectedMode: Int) {
         when(selectedMode) {
             R.id.action_list -> {
-
+                //TODO
             }
 
             R.id.action_grid -> {
-
+                //TODO
             }
 
             R.id.action_cardview -> {
-
+                //TODO
             }
         }
     }
