@@ -1,4 +1,6 @@
-package com.taufik.androidpemula
+package com.taufik.androidpemula.data
+
+import com.taufik.androidpemula.R
 
 object HeroesData {
 
@@ -34,7 +36,8 @@ object HeroesData {
         R.drawable.sudirman,
         R.drawable.sukarno,
         R.drawable.supomo,
-        R.drawable.tan_malaka)
+        R.drawable.tan_malaka
+    )
 
     val listData: ArrayList<Hero>
         get() {

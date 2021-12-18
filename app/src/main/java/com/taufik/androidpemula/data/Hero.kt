@@ -1,4 +1,4 @@
-package com.taufik.androidpemula
+package com.taufik.androidpemula.data
 
 data class Hero(
     var name: String = "",
