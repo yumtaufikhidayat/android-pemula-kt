@@ -19,12 +19,14 @@ class RecyclerViewActivity : AppCompatActivity() {
     private lateinit var listHeroAdapter: ListHeroAdapter
     private lateinit var gridHeroAdapter: GridHeroAdapter
     private var listHero: ArrayList<Hero> = arrayListOf()
+    private var title: String = "Mode Grid"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setActionBarTitle(title)
         showData()
     }
 
@@ -64,13 +66,27 @@ class RecyclerViewActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun setActionBarTitle(title: String) {
+        supportActionBar?.title = title
+    }
+
     private fun setMode(selectedMode: Int) {
         when(selectedMode) {
-            R.id.action_list -> showRecyclerList()
-            R.id.action_grid -> showRecyclerGrid()
+            R.id.action_list -> {
+                title = "Mode List"
+                showRecyclerList()
+            }
+
+            R.id.action_grid -> {
+                title = "Mode Grid"
+                showRecyclerGrid()
+            }
+
             R.id.action_cardview -> {
                 //TODO: to action cardview
             }
         }
+
+        setActionBarTitle(title)
     }
 }
