@@ -10,6 +10,7 @@ import com.taufik.androidpemula.R
 import com.taufik.androidpemula.data.Hero
 import com.taufik.androidpemula.data.HeroesData
 import com.taufik.androidpemula.databinding.ActivityRecyclerViewBinding
+import com.taufik.androidpemula.ui.adapter.CardViewHeroAdapter
 import com.taufik.androidpemula.ui.adapter.GridHeroAdapter
 import com.taufik.androidpemula.ui.adapter.ListHeroAdapter
 
@@ -18,6 +19,7 @@ class RecyclerViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewBinding
     private lateinit var listHeroAdapter: ListHeroAdapter
     private lateinit var gridHeroAdapter: GridHeroAdapter
+    private lateinit var cardViewHeroAdapter: CardViewHeroAdapter
     private var listHero: ArrayList<Hero> = arrayListOf()
     private var title: String = "Mode Grid"
 
@@ -34,6 +36,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         listHero.addAll(HeroesData.listData)
         showRecyclerList()
         showRecyclerGrid()
+        showRecyclerCardView()
     }
 
     private fun showRecyclerList() {
@@ -52,6 +55,16 @@ class RecyclerViewActivity : AppCompatActivity() {
             with(rvHero) {
                 layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
                 rvHero.adapter = gridHeroAdapter
+            }
+        }
+    }
+
+    private fun showRecyclerCardView() {
+        cardViewHeroAdapter = CardViewHeroAdapter(listHero)
+        binding.apply {
+            with(rvHero) {
+                layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
+                rvHero.adapter = cardViewHeroAdapter
             }
         }
     }
@@ -83,7 +96,8 @@ class RecyclerViewActivity : AppCompatActivity() {
             }
 
             R.id.action_cardview -> {
-                //TODO: to action cardview
+                title = "Mode CardView"
+                showRecyclerCardView()
             }
         }
 
