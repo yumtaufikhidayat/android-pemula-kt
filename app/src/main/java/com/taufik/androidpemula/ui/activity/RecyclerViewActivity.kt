@@ -48,13 +48,13 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
                 rvHero.adapter = listHeroAdapter
             }
-
-            listHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback {
-                override fun onItemClicked(data: Hero) {
-                    showSelectedHero(data)
-                }
-            })
         }
+
+        listHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback {
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showRecyclerGrid() {
@@ -64,13 +64,13 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
                 rvHero.adapter = gridHeroAdapter
             }
-
-            gridHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
-                override fun onItemClicked(data: Hero) {
-                    showSelectedHero(data)
-                }
-            })
         }
+
+        gridHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showRecyclerCardView() {
@@ -80,13 +80,13 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
                 rvHero.adapter = cardViewHeroAdapter
             }
-
-            cardViewHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
-                override fun onItemClicked(data: Hero) {
-                    showSelectedHero(data)
-                }
-            })
         }
+
+        cardViewHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
+            override fun onItemClicked(data: Hero) {
+                showSelectedHero(data)
+            }
+        })
     }
 
     private fun showSelectedHero(hero: Hero) {
