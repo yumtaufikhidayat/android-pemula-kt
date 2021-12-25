@@ -10,13 +10,23 @@ import com.taufik.androidpemula.databinding.ItemListHeroBinding
 
 class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adapter<ListHeroAdapter.ViewHolder>(){
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = ItemListHeroBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(listHero[position])
+        val pos = listHero[position]
+        holder.bind(pos)
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(pos)
+        }
     }
 
     override fun getItemCount(): Int = listHero.size
@@ -35,5 +45,9 @@ class ListHeroAdapter(private val listHero: ArrayList<Hero>) : RecyclerView.Adap
                 tvHeroDesc.text = hero.detail
             }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Hero)
     }
 }

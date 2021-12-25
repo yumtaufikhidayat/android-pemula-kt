@@ -10,13 +10,23 @@ import com.taufik.androidpemula.databinding.ItemGridHeroBinding
 
 class GridHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.ViewHolder>(){
 
+    private lateinit var onItemClickCallback: OnItemClickCallback
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GridHeroAdapter.ViewHolder {
         val view = ItemGridHeroBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: GridHeroAdapter.ViewHolder, position: Int) {
-        holder.bind(listHero[position])
+        val pos = listHero[position]
+        holder.bind(pos)
+        holder.itemView.setOnClickListener {
+            onItemClickCallback.onItemClicked(pos)
+        }
     }
 
     override fun getItemCount(): Int = listHero.size
@@ -34,5 +44,9 @@ class GridHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapt
                 tvHeroName.text = hero.name
             }
         }
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Hero)
     }
 }
