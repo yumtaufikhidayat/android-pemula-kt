@@ -7,6 +7,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.taufik.androidpemula.data.Hero
 import com.taufik.androidpemula.databinding.ItemGridHeroBinding
+import com.taufik.androidpemula.ui.helper.OnItemClickCallback
 
 class GridHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapter<GridHeroAdapter.ViewHolder>(){
 
@@ -44,9 +45,5 @@ class GridHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapt
                 tvHeroName.text = hero.name
             }
         }
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Hero)
     }
 }

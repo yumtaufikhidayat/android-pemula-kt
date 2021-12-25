@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.taufik.androidpemula.data.Hero
 import com.taufik.androidpemula.databinding.ItemCardviewHeroBinding
+import com.taufik.androidpemula.ui.helper.OnItemClickCallback
 
 class CardViewHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.Adapter<CardViewHeroAdapter.ViewHolder>() {
 
@@ -52,9 +53,5 @@ class CardViewHeroAdapter(private val listHero: ArrayList<Hero>): RecyclerView.A
                 }
             }
         }
-    }
-
-    interface OnItemClickCallback {
-        fun onItemClicked(data: Hero)
     }
 }

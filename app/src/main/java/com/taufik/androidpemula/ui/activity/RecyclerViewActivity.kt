@@ -14,6 +14,7 @@ import com.taufik.androidpemula.databinding.ActivityRecyclerViewBinding
 import com.taufik.androidpemula.ui.adapter.CardViewHeroAdapter
 import com.taufik.androidpemula.ui.adapter.GridHeroAdapter
 import com.taufik.androidpemula.ui.adapter.ListHeroAdapter
+import com.taufik.androidpemula.ui.helper.OnItemClickCallback
 
 class RecyclerViewActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class RecyclerViewActivity : AppCompatActivity() {
     private lateinit var gridHeroAdapter: GridHeroAdapter
     private lateinit var cardViewHeroAdapter: CardViewHeroAdapter
     private var listHero: ArrayList<Hero> = arrayListOf()
-    private var title: String = "Mode Grid"
+    private var title: String = "Mode CardView"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,12 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
                 rvHero.adapter = listHeroAdapter
             }
+
+            listHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback {
+                override fun onItemClicked(data: Hero) {
+                    showSelectedHero(data)
+                }
+            })
         }
     }
 
@@ -57,6 +64,12 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
                 rvHero.adapter = gridHeroAdapter
             }
+
+            gridHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
+                override fun onItemClicked(data: Hero) {
+                    showSelectedHero(data)
+                }
+            })
         }
     }
 
@@ -67,6 +80,12 @@ class RecyclerViewActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
                 rvHero.adapter = cardViewHeroAdapter
             }
+
+            cardViewHeroAdapter.setOnItemClickCallback(object: OnItemClickCallback{
+                override fun onItemClicked(data: Hero) {
+                    showSelectedHero(data)
+                }
+            })
         }
     }
 
