@@ -46,7 +46,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         binding.apply {
             with(rvHero) {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
-                rvHero.adapter = listHeroAdapter
+                adapter = listHeroAdapter
             }
         }
 
