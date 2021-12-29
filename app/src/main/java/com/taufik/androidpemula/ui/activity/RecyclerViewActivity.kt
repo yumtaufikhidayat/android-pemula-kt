@@ -62,7 +62,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         binding.apply {
             with(rvHero) {
                 layoutManager = GridLayoutManager(this@RecyclerViewActivity, 2)
-                rvHero.adapter = gridHeroAdapter
+                adapter = gridHeroAdapter
             }
         }
 
@@ -78,7 +78,7 @@ class RecyclerViewActivity : AppCompatActivity() {
         binding.apply {
             with(rvHero) {
                 layoutManager = LinearLayoutManager(this@RecyclerViewActivity)
-                rvHero.adapter = cardViewHeroAdapter
+                adapter = cardViewHeroAdapter
             }
         }
 
